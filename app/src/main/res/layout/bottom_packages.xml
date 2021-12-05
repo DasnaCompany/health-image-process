@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bottom"
+            type="com.iwmstudio.belight.viewmodel.sheet.PackagesBottomSheetViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:padding="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/bottom_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:onClick="@{ () -> bottom.openForm(context , `0`) }"
+                android:layout_weight="1"
+                android:src="@drawable/special_offer"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"/>
+
+            <ImageView
+                android:onClick="@{ () -> bottom.openForm(context , `1`) }"
+                android:layout_weight="1"
+                android:src="@drawable/eight"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:onClick="@{ () -> bottom.openForm(context ,  `2`) }"
+                android:layout_weight="1"
+                android:src="@drawable/four"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"/>
+
+            <ImageView
+                android:onClick="@{ () -> bottom.openForm(context ,  `3`) }"
+                android:layout_weight="1"
+                android:src="@drawable/five"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

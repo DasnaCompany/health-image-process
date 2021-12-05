@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="packages"
+            type="com.iwmstudio.belight.viewmodel.PackagesActivityViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.iwmstudio.belight.utils.StatusBarView
+            android:background="@drawable/gradient_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:background="@drawable/gradient_primary"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:onClick="@{ () -> packages.finish() }"
+                android:src="@drawable/baseline_keyboard_arrow_left_white_24dp"
+                android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="Packages"
+                android:textSize="19sp"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            bind:packagesRecyclerView="@{ packages.itemPackageViewModels }"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="register"
+            type="com.iwmstudio.belight.viewmodel.RegisterActivityViewModel" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.RegisterActivity">
+
+        <com.iwmstudio.belight.utils.StatusBarView
+            android:background="@drawable/gradient_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:background="@drawable/gradient_primary"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:onClick="@{ () -> register.finish() }"
+                android:src="@drawable/baseline_keyboard_arrow_left_white_24dp"
+                android:layout_width="wrap_content"
+                android:padding="16dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="Register now"
+                android:textSize="19sp"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:hint="Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="text"
+                android:drawableStart="@drawable/outline_person_grey_700_24dp"
+                android:drawablePadding="12dp"
+                android:text="@={ register.name }"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_height="wrap_content"
+            android:hint="Phone number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="number"
+                android:drawableStart="@drawable/baseline_local_phone_grey_700_24dp"
+                android:drawablePadding="12dp"
+                android:text="@={ register.phone }"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_margin="16dp"
+            android:layout_height="wrap_content"
+            android:hint="Email address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="textEmailAddress"
+                android:text="@={ register.email }"
+                android:drawableStart="@drawable/baseline_alternate_email_grey_700_24dp"
+                android:drawablePadding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_height="wrap_content"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:inputType="text"
+                android:text="@={ register.password }"
+                android:drawableStart="@drawable/baseline_password_grey_700_24dp"
+                android:drawablePadding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:onClick="@{ () -> register.btnClicked() }"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/btn_primary"
+            android:layout_margin="16dp"
+            android:textColor="#fff"
+            android:text="send"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"/>
+
+    </LinearLayout>
+
+</layout>
