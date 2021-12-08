@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeLight">
-        <activity android:name=".view.PackageActivity"></activity>
+        <activity android:name=".CameraActivity"></activity>
+        <activity android:name=".view.PackageActivity" />
         <activity android:name=".view.PackagesActivity" />
         <activity android:name=".view.BitmapMesh" />
         <activity android:name=".view.LoginActivity" />
