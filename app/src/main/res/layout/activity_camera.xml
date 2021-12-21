@@ -1,21 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="camera"
-            type="com.iwmstudio.belight.viewmodel.CameraActivityViewModel" />
+            type="io.oroom.viewmodel.CameraActivityViewModel" />
+
+        <import type="android.view.View"/>
 
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
+        android:background="#000"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CameraActivity">
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <com.otaliastudios.cameraview.CameraView
+            bind:primaryCameraView="@{ context }"
+            android:keepScreenOn="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:background="@drawable/gradient_dark_top"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"/>
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/gradient_dark_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <io.oroom.view.utils.StatusBarView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <ImageView
+                    android:onClick="@{ () -> camera.finish() }"
+                    android:padding="12dp"
+                    android:src="@drawable/baseline_keyboard_arrow_left_white_24dp"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="?actionBarSize"/>
+
+                <Space
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:onClick="@{ () -> camera.finish() }"
+                    android:padding="16dp"
+                    android:src="@drawable/baseline_more_vert_white_24dp"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="?actionBarSize"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:weightSum="3"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="85dp">
+
+            <LinearLayout
+                android:onClick="@{ () -> camera.switchCamera() }"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_switch_camera"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <io.oroom.view.utils.OroomTextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/image_switch_camera"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#fff"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:onClick="@{ () -> camera.lightOnOff() }"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_flash"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <io.oroom.view.utils.OroomTextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/flash_lyght"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#fff"
+                        android:layout_height="wrap_content"/>
+
+                    <io.oroom.view.utils.OroomTextView
+                        android:layout_width="wrap_content"
+                        android:visibility="@{ camera.flashOnOff }"
+                        android:text="@string/flash_lyght_on"
+                        android:paddingStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#fff"
+                        android:layout_height="wrap_content"/>
+
+                    <io.oroom.view.utils.OroomTextView
+                        android:layout_width="wrap_content"
+                        android:visibility="@{ camera.flashOnOff == View.GONE ? View.VISIBLE : View.GONE }"
+                        android:text="@string/flash_lyght_off"
+                        android:paddingStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#fff"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:onClick="@{ () -> camera.takePhoto(context) }"
+            android:background="@drawable/take_image_btn"
+            android:layout_width="64dp"
+            android:layout_margin="19dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_height="64dp"/>
+
+    </RelativeLayout>
 
 </layout>
